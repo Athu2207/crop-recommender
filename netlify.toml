@@ -1,0 +1,4 @@
+[build]
+  base = "weather"
+  command = "npm run build"
+  publish = "build"
