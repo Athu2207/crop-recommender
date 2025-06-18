@@ -28,7 +28,7 @@ function MainPage() {
 
   const getRecommendedCrop = async (N, P, K, temperature, humidity, ph, rainfall) => {
     try {
-      const res = await fetch("https://weather-backend-k3ik.onrender.com", {
+      const res = await fetch("https://weather-backend-k3ik.onrender.com/recommend-crop", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ N, P, K, temperature, humidity, ph, rainfall }),
