@@ -474,52 +474,32 @@ body {
   color: #3c2f2f; /* Dark brown */
   border: 1px solid #6b4e31;
 }
-
+.settings-section p{
+  margin-bottom: 0.9rem;
+}
 .settings-section h2 {
   font-size: 2rem;
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.setting-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(255, 245, 224, 0.2);
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  transition: all 0.3s ease;
-  border: 1px solid #a68a64;
+.knowledge-button{
+  padding: 0.6rem;
+  border: 1px solid brown;
+  border-radius: 20px;
+  color: brown;
+}
+@keyframes zoomin{
+  0%{
+    transform: scale(1.0);
+  }100%{
+    transform: scale(1.1);
+  }
 }
 
-.setting-item:hover {
-  background: rgba(255, 245, 224, 0.3);
+.knowledge-button:hover{
+  animation: 0.3s ease forwards zoomin;
 }
-
-.setting-item label {
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: #3c2f2f; /* Dark brown */
-}
-
-.setting-item select,
-.setting-item input[type="checkbox"] {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 8px;
-  background: #fff5e0;
-  color: #3c2f2f; /* Dark brown */
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.setting-item input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  accent-color: #4a7043;
-}
-
 /* Maps Section */
 .maps-section {
   padding: 40px 20px;

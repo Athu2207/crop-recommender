@@ -1,11 +1,21 @@
 import React from 'react'
 import MainPage from './MainPage'
-
+import {BrowserRouter,Route, Router, Routes } from 'react-router-dom'
+import Cropinfo from './Cropinfo'
+import "./App.css"
+import Fertilizerguide from './Fertilizerguide'
 function App() {
   return (
-    <div>
-      <MainPage/>
-    </div>
+    <>
+      
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<MainPage/>}/>
+        <Route path='/cropinfo' element={<Cropinfo/>}/>
+        <Route path='/fertilizerinfo' element={<Fertilizerguide/>}/>
+      </Routes>
+    </BrowserRouter>
+    </>
   )
 }
 

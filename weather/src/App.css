@@ -6,6 +6,11 @@
   height: 40vmin;
   pointer-events: none;
 }
+.google_translate_element{
+  border: none;
+  position: absolute;
+  background-color: red;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

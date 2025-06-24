@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './MainPage.css';
+import { useNavigate } from 'react-router-dom';
 
 function MainPage() {
   const iconMap = {
@@ -13,7 +14,9 @@ function MainPage() {
     'Fog': '🌫️',
     'Haze': '🌫️'
   };
+  
 
+  const navigate=useNavigate()
   const [city, setCity] = useState('');
   const [weather, setWeather] = useState('');
   const [location, setLocation] = useState('');
@@ -129,14 +132,17 @@ function MainPage() {
 
   return (
     <div className="container">
-      {/* Header Section */}
+      <div id="google_translate_element"></div>
+      {/*name of app*/}
       <header className="header">
-        <div className="app-logo">🌤️</div>
-        <h1 className="app-title">WeatherApp</h1>
-        <p className="subtitle">Your Day, Your Weather - Always One Step Ahead</p>
+        <div className="app-logo">🌾</div>
+        <h1 className="app-title">FarmUp</h1>
+        <p className="subtitle">"FarmUp – Cultivating Smarter Futures"
+
+</p>
       </header>
 
-      {/* Search Section */}
+      {/*search*/}
       <section className="search-section">
         <div className="search-card">
           <div className="input-container">
@@ -170,7 +176,7 @@ function MainPage() {
         </div>
       </section>
 
-      {/* Weather Section */}
+      {/*weateher display*/}
       <section className="weather-section">
         {showWeatherInfo ? (
           <div className="weather-card">
@@ -263,28 +269,18 @@ function MainPage() {
         )}
       </section>
 
-      {/* Settings Section */}
+      {/*getinfo*/}
       <section className="settings-section">
-        <h2>Settings</h2>
-        <div className="setting-item">
-          <label>Temperature Unit:</label>
-          <select>
-            <option>Celsius</option>
-            <option>Fahrenheit</option>
-          </select>
-        </div>
-        <div className="setting-item">
-          <label>Theme:</label>
-          <select>
-            <option>Default</option>
-            <option>Dark</option>
-            <option>Light</option>
-          </select>
-        </div>
-        <div className="setting-item">
-          <label>Auto-refresh:</label>
-          <input type="checkbox" />
-        </div>
+        <h2>FarmKnowledge</h2>
+        <p>Get info about the various crops grown across India!</p>
+        <button className="knowledge-button" onClick={()=>navigate("/cropinfo")}>
+          Go to Crop information
+        </button>
+        <p>Get info about the various crops grown across India!</p>
+        <button className="knowledge-button" onClick={()=>navigate("/fertilizerinfo")}>
+          Go to Crop information
+        </button>
+        
       </section>
 
       {/* Maps Section */}
@@ -304,7 +300,7 @@ function MainPage() {
         </div>
       )}
 
-      {/* Help Modal */}
+      {/*help button*/}
       {showHelp && (
         <div className="help-modal">
           <div className="help-content">
