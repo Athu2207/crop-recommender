@@ -1,6 +1,6 @@
 import React from 'react'
 import MainPage from './MainPage'
-import {BrowserRouter,Route, Router, Routes } from 'react-router-dom'
+import {BrowserRouter,Route, Routes } from 'react-router-dom'
 import Cropinfo from './Cropinfo'
 import "./App.css"
 import Fertilizerguide from './Fertilizerguide'
