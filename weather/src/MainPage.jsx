@@ -276,13 +276,16 @@ function MainPage() {
         <button className="knowledge-button" onClick={()=>navigate("/cropinfo")}>
           Go to Crop information
         </button>
-        <p>Get info about the various crops grown across India!</p>
-        <button className="knowledge-button" onClick={()=>navigate("/fertilizerinfo")}>
-          Go to Crop information
-        </button>
         
       </section>
-
+      {/* soil section*/}
+        <section className="soiltest-section">
+          <h2>SoilSelect</h2>
+          <p>Worried about your soil? Just click here to get a quality check</p>
+          <button className="soiltest-button" onClick={()=>navigate("/fertilizerinfo")}>
+            Go to Soil test
+          </button>
+        </section>
       {/* Maps Section */}
       <section className="maps-section">
         <h2>Weather Maps</h2>

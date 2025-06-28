@@ -483,22 +483,29 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.knowledge-button{
-  padding: 0.6rem;
-  border: 1px solid brown;
-  border-radius: 20px;
-  color: brown;
-}
-@keyframes zoomin{
-  0%{
-    transform: scale(1.0);
-  }100%{
-    transform: scale(1.1);
-  }
+.knowledge-button {
+  margin-top: 15px;
+  background-color: #4CAF50; /* Bright green */
+  color: white;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  border: none;
 }
 
-.knowledge-button:hover{
-  animation: 0.3s ease forwards zoomin;
+.knowledge-button:hover {
+  background-color: #388E3C; 
+  transform: scale(1.03);
+}
+
+@media (max-width: 600px) {
+  .knowledge-button {
+    width: 100%;
+    font-size: 14px;
+  }
 }
 /* Maps Section */
 .maps-section {
@@ -758,5 +765,45 @@ body {
     width: 50px;
     height: 50px;
     font-size: 20px;
+  }
+}
+
+/*Soi;-section*/
+.soiltest-section{
+  padding: 30px 20px;
+  background: rgba(139, 90, 43, 0.1);
+  border-radius: 20px;
+  margin-bottom: 30px;
+  color: #3c2f2f; /* Dark brown */
+  border: 1px solid #6b4e31;
+}
+
+.soiltest-section h2{
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.soiltest-button {
+  margin-top: 15px;
+  background-color: #4CAF50; /* Bright green */
+  color: white;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  border: none;
+}
+
+.soiltest-button:hover {
+  background-color: #388E3C; 
+  transform: scale(1.03);
+}
+
+@media (max-width: 600px) {
+  .soiltest-button {
+    width: 100%;
+    font-size: 14px;
   }
 }

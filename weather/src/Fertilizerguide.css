@@ -1,0 +1,531 @@
+/* Indian Farmer-themed CSS for Fertilizer Guide */
+.ferti-form {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #228B22 0%, #32CD32 50%, #90EE90 100%);
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    background-color: green;
+}
+
+/* Add subtle pattern for agricultural feel */
+.ferti-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 100px,
+            rgba(255, 255, 255, 0.03) 100px,
+            rgba(255, 255, 255, 0.03) 102px
+        );
+    pointer-events: none;
+}
+
+.heading-page-ferti {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.15),
+        0 0 0 3px #FF6600,
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #FF6600;
+}
+
+/* Indian tricolor accent */
+.heading-page-ferti::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #FF6600 0%, #FFFFFF 50%, #228B22 100%);
+}
+
+.heading-page-ferti h2:first-child {
+    color: #FF6600;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.heading-page-ferti h2:first-child::before {
+    content: '🌾';
+    font-size: 2.2rem;
+}
+
+.heading-page-ferti h2:last-child {
+    color: #228B22;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.heading-page-ferti h2:last-child::after {
+    content: '🚜';
+    font-size: 1.8rem;
+}
+
+.input-section-crop {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.1),
+        0 0 0 2px #32CD32,
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    position: relative;
+    border: 2px solid #32CD32;
+    animation: slideUp 0.6s ease-out;
+}
+
+/* Decorative corner elements */
+.input-section-crop::before {
+    content: '🌱';
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    font-size: 2rem;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 3px solid #32CD32;
+}
+
+.input-section-crop::after {
+    content: '🌿';
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    font-size: 2rem;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 3px solid #FF6600;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.input-section-crop label {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 0;
+}
+
+/* Specific icons for different soil elements */
+.input-section-crop label::before {
+    font-size: 1.3rem;
+    width: 24px;
+    text-align: center;
+}
+
+/* pH level icon */
+.input-section-crop label:nth-child(1)::before {
+    content: '⚖️';
+}
+
+/* EC (Salt level) icon */
+.input-section-crop label:nth-child(3)::before {
+    content: '🧂';
+}
+
+/* Nitrogen icon */
+.input-section-crop label[for="Nitlevel"]::before {
+    content: '🍃';
+    color: #228B22;
+}
+
+/* Phosphorus icon */
+.input-section-crop label[for="Phosplevel"]::before {
+    content: '⚡';
+    color: #FF6600;
+}
+
+/* Potassium icon */
+.input-section-crop label[for="Potlevel"]::before {
+    content: '💪';
+    color: #8B4513;
+}
+
+.input-section-crop input,
+.input-section-crop select {
+    padding: 1rem 1.2rem;
+    border: 2px solid #d1d5db;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    background: linear-gradient(145deg, #ffffff, #f9fafb);
+    color: #374151;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.input-section-crop input:focus,
+.input-section-crop select:focus {
+    outline: none;
+    border-color: #32CD32;
+    box-shadow: 
+        0 0 0 3px rgba(50, 205, 50, 0.15),
+        inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transform: translateY(-1px);
+    background: linear-gradient(145deg, #ffffff, #f0fff0);
+}
+
+.input-section-crop input:hover,
+.input-section-crop select:hover {
+    border-color: #FF6600;
+    box-shadow: 
+        inset 0 2px 4px rgba(0, 0, 0, 0.05),
+        0 2px 8px rgba(255, 102, 0, 0.15);
+}
+
+.input-section-crop select {
+    cursor: pointer;
+    appearance: none;
+    background-image: 
+        linear-gradient(145deg, #ffffff, #f9fafb),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2332CD32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,9 12,15 18,9"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center, center;
+    background-size: cover, 16px;
+    padding-right: 3rem;
+}
+
+.input-section-crop option {
+    padding: 0.75rem;
+    background: white;
+    color: #374151;
+    font-weight: 500;
+}
+
+.input-section-crop input::placeholder {
+    color: #9ca3af;
+    font-style: italic;
+}
+
+/* Enhanced Get Results Button with Indian agricultural theme */
+.get-results-soiltest {
+    width: 100%;
+    padding: 1.3rem 2rem;
+    margin-top: 2rem;
+    background: linear-gradient(135deg, #228B22 0%, #32CD32 50%, #90EE90 100%);
+    border: 3px solid #FF6600;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 20px rgba(34, 139, 34, 0.3),
+        0 4px 8px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.get-results-soiltest::before {
+    content: '🌾';
+    font-size: 1.4rem;
+    animation: bounce 2s infinite;
+}
+
+.get-results-soiltest::after {
+    content: '🔍';
+    font-size: 1.2rem;
+}
+
+.get-results-soiltest:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 12px 25px rgba(34, 139, 34, 0.4),
+        0 8px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #32CD32 0%, #90EE90 50%, #98FB98 100%);
+    border-color: #FF4500;
+}
+
+.get-results-soiltest:active {
+    transform: translateY(-1px);
+    box-shadow: 
+        0 6px 15px rgba(34, 139, 34, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-3px);
+    }
+    60% {
+        transform: translateY(-2px);
+    }
+}
+
+/* Results section styling */
+.showresults-for-soiltest {
+    margin-top: 2rem;
+    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.1),
+        0 0 0 2px #32CD32;
+    border: 2px solid #32CD32;
+    animation: slideUp 0.6s ease-out;
+}
+
+.showresults-for-soiltest h3 {
+    color: #228B22;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.showresults-for-soiltest h3::before {
+    content: '📊';
+    font-size: 1.6rem;
+}
+
+.showresults-for-soiltest h1 {
+    color: #FF6600;
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem 0;
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, #FFF8DC 0%, #F5F5DC 100%);
+    border-radius: 15px;
+    border: 2px solid #FF6600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.showresults-for-soiltest h1::before {
+    content: '🧪';
+    font-size: 2rem;
+}
+
+.showresults-for-soiltest p {
+    margin: 0.8rem 0;
+    line-height: 1.6;
+    color: #2d3748;
+    font-size: 1rem;
+}
+
+/* Different result sections styling */
+.showacidic-results,
+.showbasic-results,
+.showideal-results,
+.showidealec-results,
+.showslightec-levels,
+.showmoderateec-results,
+.showhighec-results,
+.chem-values-res {
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.showacidic-results {
+    background: linear-gradient(135deg, #FFE4E1 0%, #FFF0F5 100%);
+    border-left: 5px solid #DC143C;
+}
+
+.showbasic-results {
+    background: linear-gradient(135deg, #E0E6FF 0%, #F0F4FF 100%);
+    border-left: 5px solid #4169E1;
+}
+
+.showideal-results {
+    background: linear-gradient(135deg, #F0FFF0 0%, #F5FFFA 100%);
+    border-left: 5px solid #32CD32;
+}
+
+.showidealec-results {
+    background: linear-gradient(135deg, #F0FFF0 0%, #F5FFFA 100%);
+    border-left: 5px solid #228B22;
+}
+
+.showslightec-levels {
+    background: linear-gradient(135deg, #FFFACD 0%, #FFFFF0 100%);
+    border-left: 5px solid #FFD700;
+}
+
+.showmoderateec-results {
+    background: linear-gradient(135deg, #FFE4B5 0%, #FFF8DC 100%);
+    border-left: 5px solid #FF8C00;
+}
+
+.showhighec-results {
+    background: linear-gradient(135deg, #FFE4E1 0%, #FFF0F5 100%);
+    border-left: 5px solid #FF4500;
+}
+
+.chem-values-res {
+    background: linear-gradient(135deg, #F0F8FF 0%, #F5F5FF 100%);
+    border-left: 5px solid #1E90FF;
+}
+
+.showresults-for-soiltest h4,
+.showresults-for-soiltest h5 {
+    color: #2d3748;
+    margin: 1rem 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.showresults-for-soiltest h4::before {
+    content: '🌱 ';
+}
+
+.showresults-for-soiltest h5::before {
+    content: '💡 ';
+}
+
+.showresults-for-soiltest ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.showresults-for-soiltest li {
+    background: rgba(255, 255, 255, 0.7);
+    margin: 0.8rem 0;
+    padding: 1rem;
+    border-radius: 10px;
+    border-left: 4px solid #32CD32;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.showresults-for-soiltest li::before {
+    content: '🌾';
+    position: absolute;
+    left: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    padding: 4px;
+    border-radius: 50%;
+    font-size: 1rem;
+}
+
+/* Mobile responsive design */
+@media (max-width: 768px) {
+    .ferti-form {
+        padding: 1rem;
+    }
+    
+    .input-section-crop {
+        max-width: 100%;
+        padding: 2rem 1.5rem;
+        margin: 0;
+    }
+    
+    .heading-page-ferti {
+        padding: 1.5rem 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .heading-page-ferti h2:first-child {
+        font-size: 1.6rem;
+    }
+    
+    .heading-page-ferti h2:last-child {
+        font-size: 1.3rem;
+    }
+    
+    .get-results-soiltest {
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .showresults-for-soiltest {
+        padding: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    .showresults-for-soiltest h1 {
+        font-size: 1.4rem;
+        padding: 0.8rem;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .input-section-crop input,
+    .input-section-crop select {
+        border-width: 3px;
+    }
+    
+    .get-results-soiltest {
+        border-width: 4px;
+    }
+}
