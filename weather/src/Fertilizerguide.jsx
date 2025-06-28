@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react'
+import React, { useState } from 'react'
 import "./Fertilizerguide.css"
 function Fertilizerguide() {
     const [nitrovalue,setNitrovalue]=useState("")
