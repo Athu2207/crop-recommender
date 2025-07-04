@@ -7,7 +7,6 @@ import img1 from "./assets/imgadv1.webp"
 import img2 from "./assets/imgadv2.png"
 import img3 from "./assets/imgadv3.jpg"
 import Navbar from './Navbar';
-import weather from "./assets/weather.webp"
 
 function MainPage() {
   const iconMap = {

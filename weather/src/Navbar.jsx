@@ -1,7 +1,6 @@
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import './Navbar.css';
-import { useEffect } from 'react';
 const Navbar = () => {
      useEffect(() => {
       const existingScript = document.getElementById("google-translate-script");
