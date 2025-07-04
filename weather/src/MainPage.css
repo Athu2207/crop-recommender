@@ -7,16 +7,18 @@
 
 body {
   font-family: 'Georgia', 'Times New Roman', Times, serif;
-  background: linear-gradient(135deg, #4a7043 0%, #8b5a2b 100%); /* Earthy green to brown gradient */
+  background: linear-gradient(135deg, #4a7043 50%, #8b5a2b 100%); /* Earthy green to brown gradient */
   min-height: 100vh;
   color: #3c2f2f; /* Dark brown for body text */
   background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M10 10c5 5 10 0 15 5s5 10 0 15-10 0-15-5-5-10 0-15z" fill="%23ffffff10" fill-rule="evenodd" opacity="0.1"/%3E%3C/svg%3E'); /* Subtle leaf-like pattern */
 }
 
 .container {
-  max-width: 1200px;
+  width: auto;
   margin: 0 auto;
   padding: 20px;
+  height: auto;
+  background:linear-gradient(rgb(174, 238, 174),rgb(218, 152, 47) 20%)
 }
 
 /* Header Section */
@@ -60,22 +62,34 @@ body {
 /* Search Section */
 .search-section {
   padding: 40px 20px;
-  background: rgba(139, 90, 43, 0.1); /* Light brown field tone */
+  background: rgba(224, 196, 14, 0.1); /* Light brown field tone */
   border-radius: 20px;
   margin-bottom: 40px;
   border: 1px solid #6b4e31;
 }
 
 .search-card {
-  max-width: 500px;
-  margin: 0 auto;
-  background: rgba(255, 245, 224, 0.95); /* Parchment-like */
-  backdrop-filter: blur(10px);
+  padding: 40px 20px;
+  background: url('https://www.bing.com/th/id/OIP.UhjJZRfx-TuxPUMXQglo3wHaE8?w=263&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2') no-repeat center center;
+  background-color: rgba(139, 90, 43, 0.2); /* Slightly darker brown overlay */
+  background-size: cover;
   border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  border: 2px solid #a68a64; /* Warm wood tone */
-  animation: fadeInUp 0.8s ease;
+  margin-bottom: 40px;
+  color: #3c2f2f; /* Dark brown */
+  border: 1px solid #6b4e31;
+  position: relative;
+}
+
+.search-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(245, 232, 199, 0.5); /* Light earthy overlay */
+  border-radius: 20px;
+  z-index: 0;
 }
 
 .input-container {
@@ -186,16 +200,37 @@ body {
 /* Weather Section */
 .weather-section {
   padding: 40px 20px;
-  background: rgba(139, 90, 43, 0.1);
+  background: url('https://tse3.mm.bing.net/th/id/OIP.9GfnJ1vxsdQ81t66zrJlGQHaE6?rs=1&pid=ImgDetMain&o=7&rm=3') no-repeat center center;
+  background-color: rgba(255, 99, 71, 0.7); /* Semi-transparent red overlay */
+  background-size: cover;
   border-radius: 20px;
   margin-bottom: 40px;
   border: 1px solid #6b4e31;
+  position: relative;
+}
+
+.weather-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(245, 232, 199, 0.5); /* Light earthy overlay */
+  border-radius: 20px;
+  z-index: 0;
+}
+
+.weather-section > * {
+  position: relative;
+  z-index: 1;
+  color: #3c2f2f; /* Dark brown for text */
 }
 
 .weather-card {
   max-width: 400px;
   margin: 0 auto;
-  background: rgba(255, 245, 224, 0.95);
+  background: rgba(255, 174, 0, 0.95);
   backdrop-filter: blur(15px);
   border-radius: 25px;
   padding: 30px;
@@ -351,11 +386,31 @@ body {
 /* Favorites Section */
 .favorites-section {
   padding: 40px 20px;
-  background: rgba(139, 90, 43, 0.1);
+  background: url('https://t4.ftcdn.net/jpg/00/92/05/97/360_F_92059706_JKCwjvKFKowSm2u279o1NNP1kNxrlALu.jpg') no-repeat center center;
+  background-color: rgba(248, 230, 41, 0.7); /* Semi-transparent yellow overlay */
+  background-size: cover;
   border-radius: 20px;
   margin-bottom: 40px;
   color: #3c2f2f; /* Dark brown */
   border: 1px solid #6b4e31;
+  position: relative;
+}
+
+.favorites-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(245, 232, 199, 0.5); /* Light earthy overlay */
+  border-radius: 20px;
+  z-index: 0;
+}
+
+.favorites-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .favorites-section h2 {
@@ -408,11 +463,32 @@ body {
 /* Forecast Section */
 .forecast-section {
   padding: 40px 20px;
-  background: rgba(139, 90, 43, 0.1);
+  background: url('https://hospitalityinsights.ehl.edu/hs-fs/hubfs/Hospitality_Insights_EHL_Weather_Image_003.jpg?width=1166&height=777&name=Hospitality_Insights_EHL_Weather_Image_003.jpg') no-repeat center center;
+  background-color: rgba(139, 90, 43, 0.2); /* Slightly darker brown overlay */
+  background-size: cover;
   border-radius: 20px;
   margin-bottom: 40px;
   color: #3c2f2f; /* Dark brown */
   border: 1px solid #6b4e31;
+  position: relative;
+  height: auto;
+}
+
+.forecast-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(245, 232, 199, 0.5); /* Light earthy overlay */
+  border-radius: 20px;
+  z-index: 0;
+}
+
+.forecast-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .forecast-section h2 {
@@ -468,11 +544,31 @@ body {
 /* Settings Section */
 .settings-section {
   padding: 40px 20px;
-  background: rgba(139, 90, 43, 0.1);
+  background: url('https://geographicbook.com/wp-content/uploads/2024/02/Agriculture-in-India-1.jpeg') no-repeat center center;
+  background-color: rgba(139, 90, 43, 0.2); /* Slightly darker brown overlay */
+  background-size: cover;
   border-radius: 20px;
   margin-bottom: 40px;
   color: #3c2f2f; /* Dark brown */
   border: 1px solid #6b4e31;
+  position: relative;
+}
+
+.settings-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(245, 232, 199, 0.5); /* Light earthy overlay */
+  border-radius: 20px;
+  z-index: 0;
+}
+
+.settings-section > * {
+  position: relative;
+  z-index: 1;
 }
 .settings-section p{
   margin-bottom: 0.9rem;
@@ -674,24 +770,30 @@ body {
 
 /* Help Button */
 .help-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: linear-gradient(135deg, #4a7043 0%, #6b4e31 100%);
+  background-color: #2E7D32;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 24px;
   border: none;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  color: #fff5e0; /* Creamy off-white */
-  font-size: 24px;
+  border-radius: 30px;
+  font-size: 16px;
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  font-family: 'Merriweather', serif;
+  background-image: linear-gradient(to right, #2E7D32, #4CAF50);
+  margin-bottom: 10px;
+  margin-left: 90%;
 }
 
 .help-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  background-color: #388E3C;
+  transform: scale(1.05);
+}
+
+.help-button:active {
+  transform: scale(0.95);
+  background-color: #1B5E20;
 }
 
 /* Responsive Design */
@@ -718,6 +820,7 @@ body {
   }
 
   .search-card {
+    background: url("https://www.bing.com/th/id/OIP.WqZh0W5lp3vj57UbaKyvjAHaHa?w=188&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2");
     padding: 20px;
   }
 
@@ -769,13 +872,33 @@ body {
 }
 
 /*Soi;-section*/
-.soiltest-section{
+.soiltest-section {
   padding: 30px 20px;
-  background: rgba(139, 90, 43, 0.1);
+  background: url('https://static.vecteezy.com/system/resources/previews/022/275/972/original/field-with-young-sprouts-of-corn-generative-ai-free-photo.jpeg') no-repeat center center;
+  background-color: rgba(139, 90, 43, 0.2); /* Slightly darker brown overlay */
+  background-size: cover;
   border-radius: 20px;
   margin-bottom: 30px;
   color: #3c2f2f; /* Dark brown */
   border: 1px solid #6b4e31;
+  position: relative;
+}
+
+.soiltest-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(245, 232, 199, 0.5); /* Light earthy overlay */
+  border-radius: 20px;
+  z-index: 0;
+}
+
+.soiltest-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .soiltest-section h2{
@@ -806,4 +929,167 @@ body {
     width: 100%;
     font-size: 14px;
   }
+}
+
+.mainpage-advertise {
+  max-width: 100%;
+  margin-bottom: 30px;
+  overflow: hidden;
+  background-color: #f5e8c7; /* Earthy beige background */
+  border: 2px solid #8b4513; /* Brown border for a rustic look */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carousel .slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px; /* Adjust height based on image aspect ratio */
+  overflow: hidden;
+  background: url('https://example.com/rice-field-bg.jpg') no-repeat center; /* Optional: Add a subtle field background */
+  background-size: cover;
+}
+
+.carousel .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures entire image is visible */
+  max-height: 400px; /* Match slide height */
+  border: 2px solid #d2b48c; /* Light brown border for images */
+  padding: 10px;
+  background-color: rgba(255, 245, 238, 0.8); /* Slight off-white overlay */
+}
+
+.carousel .control-dots {
+  bottom: 10px;
+}
+
+.carousel .control-prev,
+.carousel .control-next {
+  width: 5%;
+  height: 100%;
+  top: 0;
+  background: linear-gradient(to left, rgba(139, 69, 19, 0.5), transparent); /* Rustic gradient for prev/next */
+}
+
+.carousel .control-prev:hover,
+.carousel .control-next:hover {
+  background: linear-gradient(to left, rgba(139, 69, 19, 0.8), transparent);
+}
+
+@media (max-width: 768px) {
+  .carousel .slide {
+    height: 300px; /* Adjust for smaller screens */
+  }
+
+  .carousel .slide img {
+    max-height: 300px;
+  }
+}
+
+/* Optional: Add Indian farmer theme typography */
+.carousel .legend {
+  background-color: #8b4513; /* Brown background for caption */
+  color: #fff; /* White text */
+  padding: 5px 10px;
+  font-family: 'Arial', sans-serif; /* Replace with a traditional font like 'Devanagari' if available */
+  text-align: center;
+  border-radius: 3px;
+}
+.scheme-section-farmers{
+  border: 1px solid #6b4e31;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  height: auto;
+  padding: 20px 30px;
+}
+.scheme-section-farmers h1{
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+
+/* get-prices*/
+.agri-price-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.agri-card {
+  background: linear-gradient(135deg, #f3f0e3, #fff8e1);
+  border: 2px solid #b8860b;
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
+  width: 280px;
+  box-shadow: 0 4px 8px rgba(160, 82, 45, 0.2);
+  font-family: 'Segoe UI', sans-serif;
+  transition: transform 0.3s ease;
+}
+
+.agri-card:hover {
+  transform: translateY(-5px);
+}
+
+.agri-commodity {
+  font-size: 1.25rem;
+  color: #6b4226;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px dashed #cd853f;
+  padding-bottom: 0.25rem;
+}
+
+.price-input-card {
+  background-color: #fffdf5;
+   border: 2px solid brown;
+  border-radius: 16px;
+  padding: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 4px 10px rgba(160, 82, 45, 0.2);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.price-input-card input {
+  padding: 0.75rem 1rem;
+  border: 1.8px solid #b8860b;
+  border-radius: 12px;
+  font-size: 1rem;
+  background-color: #fffaf0;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.price-input-card input:focus {
+  border-color: #8b5a2b;
+}
+
+.price-input-card button {
+  background-color: #b8860b;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.price-input-card button:hover {
+  background-color: #a0522d;
+}
+.price-fetch-section{
+  border: 1px solid rgb(186, 99, 0);
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding: 20px 30px;
 }

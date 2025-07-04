@@ -1,0 +1,127 @@
+.navbar {
+  background-color: #3A7D34; /* Deep green for lush fields */
+  color: #FFFFFF;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow for depth */
+  font-family: 'Poppins', sans-serif; /* Modern yet approachable font */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-image: linear-gradient(to right, #3A7D34, #4A9B3E); /* Gradient for vibrancy */
+}
+
+.navbar-container {
+  max-width: 1280px; /* Slightly wider for modern screens */
+  margin: auto;
+  padding: 16px 24px; /* Increased padding for better spacing */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-size: 26px; /* Slightly larger for prominence */
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-logo::before {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url('https://img.icons8.com/color/48/000000/wheat.png'); /* Wheat icon for farmer theme */
+  background-size: cover;
+  filter: brightness(1.2);
+}
+
+.navbar-links {
+  display: flex;
+  gap: 24px; /* Increased gap for clarity */
+}
+
+.navbar-link {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  text-transform: uppercase; /* For a bold, clear look */
+}
+
+.navbar-link:hover {
+  color: #FFCA28; /* Saffron yellow for hover */
+  background-color: rgba(255, 202, 40, 0.1); /* Subtle hover background */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.navbar-toggle::before {
+  content: '\2630'; /* Hamburger icon */
+  font-size: 24px;
+  color: #FFFFFF;
+}
+
+.navbar-mobile {
+  padding: 12px 24px;
+  display: none; /* Hidden by default, shown on mobile */
+  flex-direction: column;
+  background-color: #3A7D34;
+  background-image: linear-gradient(to bottom, #3A7D34, #326B2C);
+  border-top: 2px solid #FFCA28; /* Saffron border for flair */
+}
+
+.mobile-link {
+  margin: 10px 0;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px;
+  border-radius: 4px;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.mobile-link:hover {
+  color: #FFCA28;
+  background-color: rgba(255, 202, 40, 0.15);
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-mobile.active {
+    display: flex; /* Show mobile menu when active */
+  }
+}
+
+#google_translate_element {
+  margin: 12px 0;
+  text-align: right;
+}
+
+.goog-te-gadget {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #4A2F1A !important; /* Earthy brown for translation widget */
+  background-color: #FFF3E0; /* Light saffron background */
+  padding: 4px 8px;
+  border-radius: 4px;
+}

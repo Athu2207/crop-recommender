@@ -1,6 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './MainPage.css';
 import { useNavigate } from 'react-router-dom';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+import img1 from "./assets/imgadv1.webp"
+import img2 from "./assets/imgadv2.png"
+import img3 from "./assets/imgadv3.jpg"
+import Navbar from './Navbar';
+import weather from "./assets/weather.webp"
 
 function MainPage() {
   const iconMap = {
@@ -28,6 +35,10 @@ function MainPage() {
   const [favorites, setFavorites] = useState([]);
   const [forecastData, setForecastData] = useState([]);
   const [showHelp, setShowHelp] = useState(false);
+  const [records, setRecords] = useState([]);
+  const [loadingprice,setLoadingprice] = useState(false)
+  const [selectedCommodity, setSelectedCommodity] = useState("");
+  const [selectedMarket, setSelectedMarket] = useState("");
 
   const getRecommendedCrop = async (N, P, K, temperature, humidity, ph, rainfall) => {
     try {
@@ -44,6 +55,28 @@ function MainPage() {
       setCrop("Unable to get crop recommendation");
     }
   };
+  
+  const handleFetchPrice = () => {
+  if (!selectedCommodity.trim() || !selectedMarket.trim()) return;
+  setLoadingprice(true);
+  getdailyprice(selectedCommodity.trim(), selectedMarket.trim()).then((data) => {
+    setRecords(data || []);
+    setLoadingprice(false);
+  });
+};
+
+  async function getdailyprice(commodity,market){
+    const API="579b464db66ec23bdd00000192435d865f9347b165ab85defee07ea0"
+    const res=await fetch(
+      `https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=${API}&format=json&filters[commodity]=${commodity}&filters[market]=${market}&limit=10`
+    )
+    if(!res.ok){
+      return "Failed to fetch!";
+    }
+    const dat=await res.json()
+    console.log(dat.records)
+    return dat.records
+  }
 
   async function getdata(cityname) {
     const API_KEY = "f4da84f03e8399fa676a9bcf3c0030af";
@@ -132,18 +165,110 @@ function MainPage() {
 
   return (
     <div className="container">
-      <div id="google_translate_element"></div>
+      <Navbar/>
+      <button className="help-button" onClick={() => setShowHelp(true)}>❓ Help</button>
       {/*name of app*/}
       <header className="header">
         <div className="app-logo">🌾</div>
         <h1 className="app-title">FarmUp</h1>
-        <p className="subtitle">"FarmUp – Cultivating Smarter Futures"
-
-</p>
+        <p className="subtitle">"FarmUp – Cultivating Smarter Futures"</p>
       </header>
 
+        {/*Advertisement*/}
+        <section className="mainpage-advertise">
+          <Carousel showThumbs={false} autoPlay infiniteLoop>
+            <div>
+              <img src={img1} alt="img1" />
+          
+            </div>
+            <div>
+              <img src={img2} alt="img2" height="20px" />
+              
+            </div>
+            <div>
+              <img src={img3} alt="img3" />
+           
+            </div>
+          </Carousel>
+        </section>
+      {/* Favorites Section */}
+      <section className="favorites-section">
+        <h2>Favorite Cities</h2>
+        {favorites.length === 0 ? (
+          <p>No favorite cities yet. Add some by clicking the star button!</p>
+        ) : (
+          <div className="favorites-list">
+            {favorites.map((fav, index) => (
+              <div key={index} className="favorite-item">
+                <span onClick={() => loadFavoriteWeather(fav)}>{fav}</span>
+                <button onClick={() => removeFavorite(fav)} className="remove-fav">×</button>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+
+
+      
+
+      {/*getinfo*/}
+      <section className="settings-section" id="crops">
+        <h2>FarmKnowledge</h2>
+        <p>Get info about the various crops grown across India!</p>
+        <button className="knowledge-button" onClick={()=>navigate("/cropinfo")}>
+          Go to Crop information
+        </button>
+        
+      </section>
+      {/* soil section*/}
+        <section className="soiltest-section">
+          <h2>SoilSelect</h2>
+          <p>Worried about your soil? Just click here to get a quality check</p>
+          <button className="soiltest-button" onClick={()=>navigate("/fertilizerinfo")}>
+            Go to Soil test
+          </button>
+        </section>
+
+      {/*schemes*/}
+      <section className="price-fetch-section">
+        <h2>📊 Check Harvest Prices</h2>
+  <div className="price-input-card">
+    <input
+      type="text"
+      placeholder="Enter Commodity (e.g. Wheat)"
+      value={selectedCommodity}
+      onChange={(e) => setSelectedCommodity(e.target.value)}
+    />
+    <input
+      type="text"
+      placeholder="Enter Market (e.g. Kurnool)"
+      value={selectedMarket}
+      onChange={(e) => setSelectedMarket(e.target.value)}
+    />
+    <button onClick={handleFetchPrice}>🔍 Get Prices</button>
+        </div>
+        {loadingprice ? (
+          <p>🌾 Fetching latest prices...</p>
+        ) : records.length === 0 ? (
+          <p>😞 No data found. Try a different market or commodity.</p>
+        ) : (
+          <div className="agri-price-cards">
+            {records.map((item, idx) => (
+              <div key={idx} className="agri-card">
+                <h3 className="agri-commodity">🌿 {item.commodity}</h3>
+                <p><strong>📍 Mandi:</strong> {item.market}, {item.district}</p>
+                <p><strong>📆 Date:</strong> {item.arrival_date}</p>
+                <p><strong>💰 Modal Price:</strong> ₹{item.modal_price} / {item.unit_of_price || "quintal"}</p>
+                <p><strong>📉 Min:</strong> ₹{item.min_price} &nbsp; | &nbsp; <strong>📈 Max:</strong> ₹{item.max_price}</p>
+                <p><strong>🌾 Variety:</strong> {item.variety || "N/A"}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+
       {/*search*/}
-      <section className="search-section">
+      <section className="search-section" id='weather'>
         <div className="search-card">
           <div className="input-container">
             <input
@@ -211,6 +336,12 @@ function MainPage() {
                     <span className="detail-value">{location}</span>
                   </div>
                 </div>
+                {crop && (
+                  <div className="crop-recommendation">
+                    <h3>🌾 Recommended Crop:</h3>
+                    <p>{crop}</p>
+                  </div>
+                )}
               </>
             ) : (
               <div className="no-data">
@@ -228,25 +359,7 @@ function MainPage() {
           </div>
         )}
       </section>
-
-      {/* Favorites Section */}
-      <section className="favorites-section">
-        <h2>Favorite Cities</h2>
-        {favorites.length === 0 ? (
-          <p>No favorite cities yet. Add some by clicking the star button!</p>
-        ) : (
-          <div className="favorites-list">
-            {favorites.map((fav, index) => (
-              <div key={index} className="favorite-item">
-                <span onClick={() => loadFavoriteWeather(fav)}>{fav}</span>
-                <button onClick={() => removeFavorite(fav)} className="remove-fav">×</button>
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
-
-      {/* Forecast Section */}
+        {/*forecase*/}
       <section className="forecast-section">
         <h2>5-Day Forecast</h2>
         {forecastData.length === 0 ? (
@@ -268,24 +381,6 @@ function MainPage() {
           </div>
         )}
       </section>
-
-      {/*getinfo*/}
-      <section className="settings-section">
-        <h2>FarmKnowledge</h2>
-        <p>Get info about the various crops grown across India!</p>
-        <button className="knowledge-button" onClick={()=>navigate("/cropinfo")}>
-          Go to Crop information
-        </button>
-        
-      </section>
-      {/* soil section*/}
-        <section className="soiltest-section">
-          <h2>SoilSelect</h2>
-          <p>Worried about your soil? Just click here to get a quality check</p>
-          <button className="soiltest-button" onClick={()=>navigate("/fertilizerinfo")}>
-            Go to Soil test
-          </button>
-        </section>
       {/* Maps Section */}
       <section className="maps-section">
         <h2>Weather Maps</h2>
@@ -294,15 +389,8 @@ function MainPage() {
           🗺️ Map View
         </div>
       </section>
-
-      {/* Crop Recommendation */}
-      {crop && (
-        <div className="crop-recommendation">
-          <h3>🌾 Recommended Crop:</h3>
-          <p>{crop}</p>
-        </div>
-      )}
-
+      
+      
       {/*help button*/}
       {showHelp && (
         <div className="help-modal">
@@ -322,8 +410,7 @@ function MainPage() {
         </div>
       )}
 
-      {/* Help Button */}
-      <button className="help-button" onClick={() => setShowHelp(true)}>❓ Help</button>
+      
     </div>
   );
 }
